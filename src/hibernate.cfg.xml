@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/centromedico?useSSL=false</property>
+    <property name="connection.username">hibernate</property>
+    <property name="connection.password">hibernate_420</property>
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+	<property name="show_sql">true</property>
+	<property name="current_session_context_class">thread</property>
+	
+ 	<mapping class="entities.UsuarioEntity"/>
+ 	<mapping class="entities.RolEntity"/>
+ 	<mapping class="entities.TurnoEntity"/>
+ 	<mapping class="entities.PacienteEntity"/>
+ 	<mapping class="entities.MedicoEntity"/>
+ 	<mapping class="entities.TurnoEnEsperaEntity"/>
+ 	<mapping class = "entities.MedicoEntity"/>
+  </session-factory>
+</hibernate-configuration>
