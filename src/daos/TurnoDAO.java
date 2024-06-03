@@ -54,7 +54,7 @@ public class TurnoDAO {
 		Timestamp actual = new Timestamp(System.currentTimeMillis());
 		Session s = HibernateUtil.getSessionFactory().openSession();
 		s.beginTransaction();
-		List<TurnoEntity> turnosPaciente = s.createQuery("from TurnoEntity t where t.idUsrPac = ?0 and t.fecha >= ?1")
+		List<TurnoEntity> turnosPaciente = s.createQuery("from TurnoEntity t where t.idUsrPac = ?0 and DATE_FORMAT(t.fecha, '%Y-%d-%m') >= DATE_FORMAT(?1, '%Y-%d-%m')")
 				.setParameter(0, idUsrPac).setParameter(1, actual).list();
 		s.getTransaction().commit();
 		s.close();
@@ -68,7 +68,7 @@ public class TurnoDAO {
 		Timestamp actual = new Timestamp(System.currentTimeMillis());
 		Session s = HibernateUtil.getSessionFactory().openSession();
 		s.beginTransaction();
-		List<TurnoEntity> turnosMed = s.createQuery("from TurnoEntity t where t.idUsrMed = ?0 and t.fecha >= ?1")
+		List<TurnoEntity> turnosMed = s.createQuery("from TurnoEntity t where t.idUsrMed = ?0 and DATE_FORMAT(t.fecha, '%Y-%d-%m') >= DATE_FORMAT(?1, '%Y-%d-%m')")
 				.setParameter(0, idUsrMed).setParameter(1, actual).list();
 		s.getTransaction().commit();
 		s.close();
